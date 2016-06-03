@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+  </head>
+
+  <body>
+    <div class="countdown__body" id="silva">
+      <div class="countdown__item">
+        <div class="count" id="js-days">0</div>
+        <span class="unit">days</span>
+      </div><!--
+
+      --><div class="countdown__item">
+        <div class="count" id="js-hours">0</div>
+        <span class="unit">hours</span>
+      </div><!--
+
+      --><div class="countdown__item">
+        <div class="count" id="js-minutes">0</div>
+        <span class="unit">minutes</span>
+      </div><!--
+
+      --><div class="countdown__item">
+        <div class="count" id="js-seconds">0</div>
+        <span class="unit">seconds</span>
+      </div>
+    </div>
+
+    <div class="description">
+      <p>
+        Countdown to Silva’s return to Atlanta.
+      </p>
+    </div>
+
+    <script type="text/javascript">
+    var returnTime = '2016-06-30T20:22-04:00';
+    console.log(new Date(returnTime));
+
+    function getTimeLeft(endTime) {
+      var time = Date.parse(endTime) - Date.parse(new Date()); // in milliseconds
+      var seconds = Math.floor((time/1000) % 60); // total seconds divided by 60 for remainder
+      var minutes = Math.floor((time/(1000*60)) % 60); // total minutes divided by 60 for remainder
+      var hours = Math.floor((time/(1000*60*60)) % 24); // total hours divided by 24 for remainder
+      var days = Math.floor(time/(1000*60*60*24)); // total days
+
+      return {
+        'total': time,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    }
+
+    function initializeTimer(id, endTime) {
+      // var timer = document.getElementById(id);
+      var days = document.getElementById('js-days');
+      var hours = document.getElementById('js-hours');
+      var minutes = document.getElementById('js-minutes');
+      var seconds = document.getElementById('js-seconds');
+      var timeInterval = setInterval(function() {
+        var time = getTimeLeft(endTime);
+        days.innerHTML = time.days;
+        hours.innerHTML = time.hours;
+        minutes.innerHTML = time.minutes;
+        seconds.innerHTML = time.seconds;
+        if(time.total <= 0) {
+          clearInterval(timeInterval);
+        }
+      },1000);
+    }
+
+    initializeTimer('silva', returnTime);
+    </script>
+  </body>
+</html>

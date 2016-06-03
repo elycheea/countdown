@@ -1,0 +1,150 @@
+/*  ==========================================================================
+    Defaults
+    ========================================================================== */
+
+/**
+  * A just-for-fun countdown for the return of Silva.
+  *
+  * Quick and dirty page for now. Will improve later. Maybe.
+  *
+  * TODO: Make it pretty.
+*/
+
+/*  Typography
+    ========================================================================== */
+    @font-face {
+      font-weight: normal;
+      font-family: 'Clear Sans';
+      src: url('fonts/ClearSans-Regular.eot'); /* IE9 Compat Modes */
+      src: url('fonts/ClearSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+           url('fonts/ClearSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+           url('fonts/ClearSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+           url('fonts/ClearSans-Regular.svg#ClearSans-Regular') format('svg'); /* Legacy iOS */
+    }
+
+body {
+  /* Position */
+  position: relative;
+
+  /* Display and box model */
+  min-height: 100vh;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;   /* display as column */
+  flex-direction: column;
+  -webkit-justify-content: center;  /* vertical centering */
+  justify-content: center;
+
+  font-family: 'Clear Sans', 'Helvetica', sans-serif;
+  background: #20579f;
+  background: linear-gradient(23deg, #1b2432, #20579f, #B36DBB);
+  color: #fff;
+}
+
+/* Gradient animation */
+
+.animatedBG {
+  background: linear-gradient(270deg, #403f4c, #1b2432, #536278);
+  background-size: 600% 600%;
+
+  -webkit-animation: gradientBG 30s ease infinite;
+  -moz-animation: gradientBG 30s ease infinite;
+  animation: gradientBG 30s ease infinite;
+}
+
+/*  Animations
+    ========================================================================== */
+@-webkit-keyframes animatedBG {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 69%}
+    100%{background-position:0% 32%}
+}
+@-moz-keyframes animatedBG {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 69%}
+    100%{background-position:0% 32%}
+}
+@keyframes animatedBG {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 69%}
+    100%{background-position:0% 32%}
+}
+
+/*  ==========================================================================
+    Countdown Timer
+    ========================================================================== */
+
+/**
+  * Timer container
+  *
+  * Contains .countdown__item as children
+  *
+*/
+
+.countdown__body {
+  padding: 2em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/**
+  * Unit and count wrapper
+  *
+  * Contains .count and .unit children
+  *
+*/
+
+.countdown__item {
+  /* Display and box model */
+  display: inline-block;
+  width: 10em;
+  max-width: 25%;
+
+  opacity: .85;
+  cursor: default;
+}
+
+    .count {
+      font-size: 2.5em;
+      margin-bottom: .25rem;
+    }
+
+    .unit {
+      font-size: 1em;
+    }
+
+/*  Media queries
+    ========================================================================== */
+@media screen and (min-width: 36em) {
+  .count {
+    font-size: 5em;
+  }
+
+  .unit {
+    font-size: 1.25em;
+  }
+}
+
+/*  ==========================================================================
+    Other
+    ========================================================================== */
+
+.description {
+  /* Position */
+  position: absolute;
+  bottom: 1em;
+
+  /* Typography */
+  font-size: .85em;
+
+  /* Display and box model */
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 2em;
+
+  color: #ffffff;
+  color: rgba(255,255,255,.67);
+  text-align: center;
+}
